@@ -12,6 +12,9 @@
 // });
 
 // app.js
+const express = require('express');
+const app = express();
+const port = 3000;
 
 // Route GET
 app.get('/', (req, res) => {
@@ -43,9 +46,7 @@ app.get('/json', (req, res) => {
   res.json({ message: 'Ini adalah response JSON' });
 });
 
-const express = require('express');
-const app = express();
-const port = 3000;
+
 
 // Menyajikan file statis dari folder 'public'
 app.use(express.static('public'));
