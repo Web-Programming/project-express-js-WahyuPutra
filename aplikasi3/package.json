@@ -1,0 +1,14 @@
+{
+  "name": "aplikasi3",
+  "version": "1.0.0",
+  "description": "aplikasi3",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node server.js"
+  },
+  "author": "Wahyu Putra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
