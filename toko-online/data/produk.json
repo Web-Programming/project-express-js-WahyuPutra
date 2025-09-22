@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop Gaming",
+    "price": 1500000,
+    "description": "Laptop ini keren tahan air"
+  },
+  {
+    "id": 2,
+    "name": "Smartphone Pro",
+    "price": 800000,
+    "description": "Smartphone dengan kamera 108MP"
+  },
+  {
+    "id": 3,
+    "name": "Headset Wireless",
+    "price": 250000,
+    "description": "Headset nyaman dengan suara jernih"
+  },
+  {
+    "id": 4,
+    "name": "Smartwatch",
+    "price": 500000,
+    "description": "Jam tangan pintar dengan fitur kesehatan"
+  },
+  {
+    "id": 5,
+    "name": "Tablet Stylus",
+    "price": 1200000,
+    "description": "Tablet dilengkapi stylus untuk menggambar"
+  },
+  {
+    "id": 6,
+    "name": "Kamera DSLR",
+    "price": 3000000,
+    "description": "Kamera profesional untuk fotografi"
+  },
+  {
+    "id": 7,
+    "name": "Keyboard Mechanical",
+    "price": 350000,
+    "description": "Keyboard dengan switch biru clicky"
+  },
+  {
+    "id": 8,
+    "name": "Mouse Gaming",
+    "price": 200000,
+    "description": "Mouse dengan DPI tinggi"
+  },
+  {
+    "id": 9,
+    "name": "Monitor 27 Inch",
+    "price": 1800000,
+    "description": "Monitor Full HD untuk kerja dan gaming"
+  },
+  {
+    "id": 10,
+    "name": "Printer Wireless",
+    "price": 600000,
+    "description": "Printer hemat tinta dengan WiFi"
+  },
+  {
+    "id": 11,
+    "name": "Speaker Bluetooth",
+    "price": 400000,
+    "description": "Speaker portable dengan bass kuat"
+  },
+  {
+    "id": 12,
+    "name": "Powerbank 20000mAh",
+    "price": 300000,
+    "description": "Powerbank kapasitas besar fast charging"
+  },
+  {
+    "id": 13,
+    "name": "Drone Kamera",
+    "price": 2500000,
+    "description": "Drone dengan kamera 4K stabil"
+  },
+  {
+    "id": 14,
+    "name": "Projector Mini",
+    "price": 1000000,
+    "description": "Proyektor mini portable"
+  },
+  {
+    "id": 15,
+    "name": "Router WiFi 6",
+    "price": 700000,
+    "description": "Router cepat dengan teknologi terbaru"
+  },
+  {
+    "id": 16,
+    "name": "External Harddisk 1TB",
+    "price": 900000,
+    "description": "Harddisk eksternal dengan USB 3.0"
+  },
+  {
+    "id": 17,
+    "name": "SSD 512GB",
+    "price": 1200000,
+    "description": "SSD cepat untuk laptop dan PC"
+  },
+  {
+    "id": 18,
+    "name": "Webcam HD",
+    "price": 350000,
+    "description": "Webcam untuk meeting online"
+  },
+  {
+    "id": 19,
+    "name": "Microphone USB",
+    "price": 450000,
+    "description": "Microphone dengan kualitas studio"
+  },
+  {
+    "id": 20,
+    "name": "Smart TV 43 Inch",
+    "price": 4000000,
+    "description": "Smart TV dengan koneksi internet"
+  }
+]
