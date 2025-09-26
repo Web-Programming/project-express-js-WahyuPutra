@@ -32,6 +32,11 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+var productRouter = require(".routes/product");
+app.use('/',indexRouter);
+app.use('/users', usersRouter);
+app.use("/produk", productRouter);
+
 // error handler
 app.use(function(err, req, res, next) {
   res.locals.message = err.message;

@@ -27,4 +27,9 @@ router.get('/', function(req, res, next) {
     products:produk });
 });
 
+router.get('/search', function(req, res, next) {
+  res.render('index', { title: 'Toko Online Keren',
+    products:produk });
+});
+
 module.exports = router;
