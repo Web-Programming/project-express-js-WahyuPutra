@@ -1,0 +1,43 @@
+<% layout('layout') %>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-body p-5">
+          
+          <!-- Nama Produk -->
+          <h2 class="card-title mb-3 text-primary fw-bold"><%= product.name %></h2>
+          <hr>
+
+          <!-- Deskripsi Produk -->
+          <p class="card-text mb-3">
+            <strong>Deskripsi:</strong> <br>
+            <span class="text-muted"><%= product.description %></span>
+          </p>
+
+          <!-- Harga Produk -->
+          <p class="card-text fs-5">
+            <strong>Harga: </strong> 
+            <span class="badge bg-success fs-6">
+              Rp <%= product.price.toLocaleString('id-ID') %>
+            </span>
+          </p>
+
+          <!-- Tombol kembali -->
+          <a href="/" class="btn btn-outline-secondary mt-3">← Kembali ke Beranda</a>
+
+          <!-- Ulasan Produk -->
+          <div class="mt-5">
+            <h4 class="fw-bold mb-3">Ulasan Produk</h4>
+            <div class="d-flex gap-2">
+              <a href="/produk/<%= product.id %>/review/1" class="btn btn-primary">Lihat Ulasan 1</a>
+              <a href="/produk/<%= product.id %>/review/2" class="btn btn-primary">Lihat Ulasan 2</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

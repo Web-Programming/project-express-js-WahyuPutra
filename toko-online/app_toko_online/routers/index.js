@@ -1,15 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var mainController = require("../controllers/main");
 var products = require('../data/products.json');
-
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', {
-    title: '',
-    products: products,
-    query: null // biar bisa dipakai di view
-  });
-});
 
 /* GET search page. */
 router.get('/search', function (req, res, next) {
@@ -17,9 +9,9 @@ router.get('/search', function (req, res, next) {
 
   let filteredProducts;
   if (!q) {
-    filteredProducts = products; // jika query kosong tampilkan semua
+    filteredProducts = mainController.products; // jika query kosong tampilkan semua
   } else {
-    filteredProducts = products.filter(p =>
+    filteredProducts = mainController.products.filter(p =>
       p.name.toLowerCase().includes(q)
     );
   }
@@ -30,5 +22,7 @@ router.get('/search', function (req, res, next) {
     query: q
   });
 });
+
+router.get("/", mainController.index);
 
 module.exports = router;

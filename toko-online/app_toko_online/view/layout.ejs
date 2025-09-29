@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -32,7 +33,9 @@
                         type="search" 
                         name="q" 
                         placeholder="Cari produk..." 
-                        value="<%= query || '' %>">
+                        value="<%= typeof query !== 'undefined' ? query : '' %>"
+
+                        
                     <button class="btn btn-outline-success" type="submit">Cari</button>
                 </form>
             </div>
@@ -42,5 +45,4 @@
     <%- body %>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
-<a href=""></a>
 </html>
