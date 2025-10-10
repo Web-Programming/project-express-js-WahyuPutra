@@ -8,6 +8,7 @@ var indexRouter = require('./app_toko_online/routers/index');
 var usersRouter = require('./app_toko_online/routers/users');
 var engine = require('ejs-blocks'); //menggunakan ejs blok
 var app = express();
+require("./app_toko_online/models/db"); // panggil db
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_toko_online', 'view')); // perbaikan ke 1
