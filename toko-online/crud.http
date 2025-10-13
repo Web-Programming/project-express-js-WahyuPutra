@@ -1,0 +1,28 @@
+### GET ALL Product
+GET http://localhost:3000/api/produk
+
+### Insert New Product
+POST http://localhost:3000/api/produk
+content-type: application/json
+
+{
+    "name": "Keyboard",
+    "price" : "1",
+    "description" : "Hyper Sensitive Keyboard",
+    "stock" : 1
+}
+
+### Detail Product
+GET hhtp://localhost:3000/api/produk/68ecc2774d49272f5636f31f
+
+### Update Product
+PUT http://localhost:3000/api/produk/68ecc2774d49272f5636f31f
+content-type: application/json
+
+{
+    "price" : "600000",
+    "stock" : 5
+}
+
+### Delete Product
+DELETE http://localhost:3000/api/produk/68ecc2774d49272f5636f31f
