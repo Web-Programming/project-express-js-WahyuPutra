@@ -10,6 +10,8 @@ var engine = require('ejs-blocks'); //menggunakan ejs blok
 var app = express();
 require("./app_toko_online/models/db"); // panggil db
 var apiProductRouter = require("./app_toko_online/routers/api/product");
+var apiUsertRouter = require("./app_toko_online/routers/api/user");
+var apiOrderRouter = require("./app_toko_online/routers/api/order");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_toko_online', 'view')); // perbaikan ke 1
@@ -27,6 +29,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/produk", productRouter);
 app.use("/api/product",apiProductRouter);
+app.use("/api/users",apiUsertRouter);
+app.use("/api/orders",apiOrderRouter);
+//app.use("/api/user",apiUserRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
