@@ -1,5 +1,6 @@
-var products = require('../data/products.json');
+var products = require('../models/products');
 var Order = require('../models/orders');
+const User = require("../models/users");
 
 // Buat rest api
 const apiall = async(req, res) => {
@@ -22,6 +23,12 @@ const apiall = async(req, res) => {
 
 const create = async(req,res) =>{
     try{
+        const {user, orderItems, staus, orderDate} = req.body;
+
+        const totalAmount = orderItems.reduce(
+            (sum, item) => {sum + item.priceAtorder * item.quality;
+            0
+    }, 0);
         // ambil data nya
         const newOrder = new Order({
             user: req.body.user,
@@ -82,31 +89,38 @@ const detailorder = async(req,res) =>{
 
 const update = async(req,res) =>{
     try{
-        const order = await Order.findByIdAndUpdate(req.params.id, req.body, {
+        const { status } = req.body;
+        const order = await Order.findByIdAndUpdate(req.params.id, req.body, {status}, {
             new: true,
             runValidators: true
         });
 
         if(!order){
             res.status(404).json({
-                status:false, message: "Order Tidak Ditemukan",
+                status:false,
+                message: "Order Tidak Ditemukan",
             });
         }
         res.status(200).json({
-            status: true, message:"Order Berhasil Di Update", data:order
+            status: true, 
+            message:"Order Berhasil Di Update", 
+            data:order
         });
     }catch(err){
         if(err.user === 'CastError'){
             res.status(400).json({
-                status: false, message: "Format ID Tidak Valid"
+                status: false, 
+                message: "Format ID Tidak Valid"
             });
         }else if(err.user === 'ValidationError'){
             res.status(400).json({
-                status: false, message: err.message
+                status: false, 
+                message: err.message
             });
         }else{
             res.status(500).json({
-                status: false, message: 'Internal Server Error'
+                status: false, 
+                message: 'Internal Server Error'
             });
         }
     }
@@ -117,21 +131,25 @@ const remove = async(req,res) =>{
         const order = await Order.findByIdAndDelete(req.params.id);
          if(!order){
             res.status(404).json({
-                status: false, message: "Order Tidak Ditemukan",
+                status: false, 
+                message: "Order Tidak Ditemukan",
             });
          }else{
             res.status(200).json({
-                status: true, message: "Order Berhasil Dihapus"
+                status: true, 
+                message: "Order Berhasil Dihapus"
             });
          }
     }catch(err){
         if(err.user === 'CastError'){
             res.status(200).json({
-                status: true, message: "Format ID Tidak Valid",
+                status: true, 
+                message: "Format ID Tidak Valid",
             });
          }else{
             res.status(500).json({
-                status: false, message: "Internal Server Error"
+                status: false, 
+                message: "Internal Server Error"
             });
          }
     }

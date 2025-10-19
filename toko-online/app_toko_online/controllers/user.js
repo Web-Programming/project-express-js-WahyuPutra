@@ -9,20 +9,29 @@ const create = async (req, res) => {
       email: req.body.email,
       password: req.body.password,
       address: req.body.address,
-      isAdmin: req.body.isAdmin,
-      createat: req.body.createat
+      isAdmin: req.body.isAdmin || false
     });
     const user = await newUser.save();
+
+    const userResponse = user.toObject();
+    delete userResponse.password;
+
     res.status(200).json({
         status : true,
-        message : "Produk berhasil disimpan",
+        message : "User berhasil disimpan",
         data: user
     });
+
     }catch(err){
       if(err.name === 'validationError'){
         res.status(400).json({
           status: false,
           message: err.message
+        });
+      }else if (err.code === 11000){
+        res.status(400).json({
+          status: false,
+          message: "Username atau Email sudah terdaftar"
         });
       }else{
         res.status(500).json({
@@ -35,12 +44,12 @@ const create = async (req, res) => {
 
 const apiall = async (req, res) => {
   try{
-    const prod = await User.find({});
+    const users = await User.find({}).select('-password');
       res.status(200).json(
         {
           status: true,
           message: "Data User Berhasil Diambil",
-          data: prod
+          data: users
         }
       );
     }catch(err){
@@ -54,7 +63,7 @@ const apiall = async (req, res) => {
 const getById = async (req, res) => {
   try{
     const userId = req.params.id;
-    const user = await User.findById(userId);
+    const user = await User.findById(userId).select('-password');
 
         if(!user){
             return res.status(404).json({
@@ -80,24 +89,33 @@ const update = async (req, res) => {
           const user = await User.findByIdAndUpdate(req.params.id, req.body, {
               new: true,
               runValidators: true
-          });
+          }).select('-password');
   
           if(!user){
               res.status(404).json({
-                  status:false, message: "User Tidak Ditemukan",
+                  status:false, 
+                  message: "User Tidak Ditemukan",
               });
           }
           res.status(200).json({
-              status: true, message:"User Berhasil Di Update", data:user
+              status: true, 
+              message:"User Berhasil Di Update", 
+              data:user
           });
       }catch(err){
-          if(err.username === 'CastError'){
+          if(err.name === 'CastError'){
               res.status(400).json({
                   status: false, message: "Format ID Tidak Valid"
               });
-          }else if(err.username === 'ValidationError'){
+          }else if(err.name === 'ValidationError'){
               res.status(400).json({
-                  status: false, message: err.message
+                  status: false, 
+                  message: err.message
+              });
+          }else if(err.name === 11000){
+              res.status(400).json({
+                  status: false, 
+                  message: "username atau email sudah terdaftar"
               });
           }else{
               res.status(500).json({
@@ -112,11 +130,11 @@ const remove = async (req, res) => {
         const user = await User.findByIdAndDelete(req.params.id);
          if(!user){
             res.status(404).json({
-                status: false, message: "Produk Tidak Ditemukan",
+                status: false, message: "User Tidak Ditemukan",
             });
          }else{
             res.status(200).json({
-                status: true, message: "Produk Berhasil Dihapus"
+                status: true, message: "User Berhasil Dihapus"
             });
          }
     }catch(err){
