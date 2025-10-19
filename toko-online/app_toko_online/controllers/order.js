@@ -90,10 +90,20 @@ const detailorder = async(req,res) =>{
 const update = async(req,res) =>{
     try{
         const { status } = req.body;
-        const order = await Order.findByIdAndUpdate(req.params.id, req.body, {status}, {
-            new: true,
-            runValidators: true
-        });
+
+        const allowedStatus = ['Pending', 'Procesing', 'Shipped', 'Delivered', 'Cencelled'];
+        if(!status || !allowedStatus.includes(status)){
+            return res.status(400).json({
+                status: false,
+                message: "Status tidak valid"
+            });
+        }
+
+        const order = await Order.findByIdAndUpdate(
+            req.params.id,
+            { status },
+            { new: true}
+        );
 
         if(!order){
             res.status(404).json({
