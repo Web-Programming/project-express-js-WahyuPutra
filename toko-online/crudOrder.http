@@ -1,28 +1,52 @@
-### GET ALL Product
+### GET ALL Orders
 GET http://localhost:3000/api/order
 
-### Insert New Product
+### CREATE New Order
 POST http://localhost:3000/api/order
-content-type: application/json
+Content-Type: application/json
 
 {
-    "name": "Keyboard",
-    "price" : 10000,
-    "description" : "Hyper Sensitive Keyboard",
-    "stock" : 1
+  "user": "66ff8c2e2b9d1e47a84cc111",
+  "orderItems": [
+    {
+      "product": "66ff8cbb2b9d1e47a84cc222",
+      "quantity": 2,
+      "priceAtOrder": 15000 
+    },
+    {
+      "product": "66ff8d0c2b9d1e47a84cc333",
+      "quantity": 1,
+      "priceAtOrder": 25000 
+    }
+  ],
+  "totalAmount": 55000
 }
 
-### Detail Product
-GET hhtp://localhost:3000/api/order/68ecc2774d49272f5636f31f
+### CREATE New Order error
+POST http://localhost:3000/api/order
+Content-Type: application/json
+{
+  "user": "66ff8c2e2b9d1e47a84cc111",
+  "orderItems": [
+    {
+      "product": "00000000000000000000000",
+      "quantity": 2,
+      "priceAtOrder": 15000 
+    }
+  ],
+  "totalAmount": 55000
+}
 
-### Update Product
-PUT http://localhost:3000/api/order/68ecc2774d49272f5636f31f
-content-type: application/json
+### GET Order by ID
+GET http://localhost:3000/api/order/66ff8e0f2b9d1e47a84cc444
+
+### UPDATE Order
+PUT http://localhost:3000/api/order/66ff8e0f2b9d1e47a84cc444
+Content-Type: application/json
 
 {
-    "price" : "600000",
-    "stock" : 5
+  "status": "Shipped"
 }
 
-### Delete Product
-DELETE http://localhost:3000/api/order/68ecc2774d49272f5636f31f
+### DELETE Order
+DELETE http://localhost:3000/api/order/66ff8e0f2b9d1e47a84cc444

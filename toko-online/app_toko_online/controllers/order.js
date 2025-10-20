@@ -104,7 +104,6 @@ const update = async(req,res) =>{
             { status },
             { new: true}
         );
-
         if(!order){
             res.status(404).json({
                 status:false,

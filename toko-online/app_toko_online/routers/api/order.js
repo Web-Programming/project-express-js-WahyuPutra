@@ -2,9 +2,10 @@ const express = require("express");
 const routers = express.Router();
 
 const orderController = require("../../controllers/order");
+const auth = require("../middleware/authMiddleware");
 
 // url create - Post (/api/produk)
-routers.post("/",orderController.create)
+routers.post("/", auth.adminOnly, orderController.create)
 
 // url read all - Get (/api/produk)
 routers.get("/", orderController.apiall);
