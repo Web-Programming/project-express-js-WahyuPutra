@@ -73,7 +73,7 @@ const create = async(req,res) =>{
         });
 
     }catch(err){
-        if(err.name === 'validationError'){
+        if(err.name === 'ValidationError'){
             res.status(400).json({
                 status: false,
                 message: err.message

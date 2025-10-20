@@ -1,8 +1,8 @@
 ### GET ALL Product
-GET http://localhost:3000/api/product
+GET http://localhost:3000/api/user
 
 ### Insert New Product
-POST http://localhost:3000/api/product
+POST http://localhost:3000/api/user
 content-type: application/json
 
 {
@@ -13,10 +13,10 @@ content-type: application/json
 }
 
 ### Detail Product
-GET hhtp://localhost:3000/api/product/68ecc2774d49272f5636f31f
+GET hhtp://localhost:3000/api/user/68ecc2774d49272f5636f31f
 
 ### Update Product
-PUT http://localhost:3000/api/product/68ecc2774d49272f5636f31f
+PUT http://localhost:3000/api/user/68ecc2774d49272f5636f31f
 content-type: application/json
 
 {
@@ -25,4 +25,4 @@ content-type: application/json
 }
 
 ### Delete Product
-DELETE http://localhost:3000/api/product/68ecc2774d49272f5636f31f
+DELETE http://localhost:3000/api/user/68ecc2774d49272f5636f31f
