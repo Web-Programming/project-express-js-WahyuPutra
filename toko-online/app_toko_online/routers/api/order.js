@@ -8,7 +8,7 @@ const auth = require("../middleware/authMiddleware");
 routers.post("/", auth.adminOnly, orderController.create)
 
 // url read all - Get (/api/produk)
-routers.get("/", orderController.apiall);
+routers.get("/", orderController.all);
 
 // url read one - detail - Get (api/produk/id)
 routers.get("/:id",orderController.detailorder);
